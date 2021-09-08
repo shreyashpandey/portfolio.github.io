@@ -1,48 +1,77 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Layout from './components/Layouts/layout'
+import React, { ReactElement, useReducer, FC } from "react";
+import {
+  createTheme,
+  Theme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
+// components
+import Layout from "./components/Layouts/layout";
+
+// theme
+import { lightTheme, darkTheme } from "./theme/AppTheme";
+
+// app routes
+import { routes } from "./config";
+
+// constants
+import { APP_TITLE } from "./utils/constants";
+
+// interfaces
+import RouteItem from "./model/RouteItem.model";
+
+// define app context
+const AppContext = React.createContext(null);
+
+// default component
+const DefaultComponent: FC<{}> = (): ReactElement => (
+  <div>{`No Component Defined.`}</div>
+);
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [useDefaultTheme, toggle] = useReducer((theme) => !theme, true);
+
+  // define custom theme
+  let theme: Theme = createTheme(useDefaultTheme ? lightTheme : darkTheme);
+  theme = responsiveFontSizes(theme);
 
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>Hello Vite + React!</p>
-    //     <p>
-    //       <button type="button" onClick={() => setCount((count) => count + 1)}>
-    //         count is: {count}
-    //       </button>
-    //     </p>
-    //     <p>
-    //       Edit <code>App.tsx</code> and save to test HMR updates.
-    //     </p>
-    //     <p>
-    //       <a
-    //         className="App-link"
-    //         href="https://reactjs.org"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Learn React
-    //       </a>
-          <Header title="React App"/>
-    //       {' | '}
-    //       <a
-    //         className="App-link"
-    //         href="https://vitejs.dev/guide/features.html"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Vite Docs
-    //       </a>
-    //     </p>
-    //   </header>
-    // </div>
-  )
+    <>
+      <Helmet>
+        <title>{APP_TITLE}</title>
+      </Helmet>
+      <AppContext.Provider value={null}>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <Switch>
+              <Layout toggleTheme={toggle} useDefaultTheme={useDefaultTheme}>
+                {/* for each route config, a react route is created */}
+                {routes.map((route: RouteItem) => (
+                  route.subRoutes ? route.subRoutes.map((item: RouteItem) => (
+                    <Route
+                      key={`${item.key}`}
+                      path={`${item.path}`}
+                      component={item.component || DefaultComponent}
+                      exact
+                    />
+                  )) :
+                    <Route
+                      key={`${route.key}`}
+                      path={`${route.path}`}
+                      component={route.component || DefaultComponent}
+                      exact
+                    />
+                ))}
+              </Layout>
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </AppContext.Provider>
+    </>
+  );
 }
 
-export default App
+export default App;
