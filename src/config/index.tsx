@@ -8,7 +8,7 @@ import PrivateIcon from '@material-ui/icons/LockOutlined';
 import PublicIcon from '@material-ui/icons/LockOpenOutlined';
 
 // components
-// import Home from '../pages/Home';
+import Home from '../components/pages/Home';
 // import Dashboard from '../pages/Dashboard';
 // import GHPrivate from '../pages/GitHub/PrivateRepo';
 // import GHPublic from '../pages/GitHub/PublicRepo';
@@ -26,7 +26,7 @@ export const routes: Array<RouteItem> = [
         tooltip: "Home",
         path: "/",
         enabled: true,
-        // component: Home,
+        component: Home,
         icon: HomeIcon,
         appendDivider: true
     },
