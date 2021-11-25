@@ -14,6 +14,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import UserIcon from "@material-ui/icons/AccountCircle";
+import { Popover } from "@mui/material";
+// import emStyled from '@emotion/styled';
 
 // constants
 import { APP_TITLE, DRAWER_WIDTH } from "../../utils/constants";
@@ -71,7 +73,11 @@ const Header = ({
   toggleTheme,
   useDefaultTheme,
 }: HeaderProps) => {
+  const [anchorEl, setAnchorEl] = React.useState<boolean>(false);
   const classes = useStyles();
+  const callPopover = (): void => {
+    setAnchorEl(!anchorEl);
+  };
   return (
     <AppBar
       position="fixed"
@@ -109,8 +115,41 @@ const Header = ({
             </Tooltip>
           )}
         </IconButton>
-        <IconButton size="small" color="inherit">
+        <IconButton size="small" color="inherit" style={{zIndex:999999}} onClick={callPopover} >
           <UserIcon />
+          {anchorEl ? (
+            <Popover
+              open={anchorEl}
+              anchorReference="anchorPosition"
+              anchorPosition={{ top: 350, left: 580 }}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+            >
+              A popup
+            </Popover>
+          ) : (
+            <Popover
+              open={anchorEl}
+              anchorReference="anchorPosition"
+              anchorPosition={{ top: 350, left: 580 }}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+            >
+              A popup
+            </Popover>
+          )}
         </IconButton>
       </Toolbar>
     </AppBar>

@@ -40,6 +40,15 @@ export const routes: Array<RouteItem> = [
         icon: DashboardIcon
     },
     {
+        key: "router-signup",
+        title: "SignUp",
+        tooltip: "SignUp",
+        path: "/signup",
+        enabled: true,
+        // component: Dashboard,
+        icon: DashboardIcon
+    },
+    {
         key: "router-gh",
         title: "GitHub",
         tooltip: "GitHub",
