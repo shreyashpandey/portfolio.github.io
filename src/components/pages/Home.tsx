@@ -18,8 +18,15 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import myImg from "../../images/my_img.png";
+import jsImg from "../../images/js_img.png";
+import tsImg from "../../images/ts_img.png";
+import htmlImg from "../../images/html_img.png";
+import cssImg from "../../images/css_img.png";
+import reactImg from "../../images/react_img.png";
+import nodeImg from "../../images/node_img.png";
 import { TextField } from "@mui/material";
-import { createMuiTheme,ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import Zoom from "@mui/material/Zoom";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -58,11 +65,14 @@ const cardStyles = makeStyles((theme: Theme) =>
 );
 const theme = createMuiTheme({
   typography: {
-    fontFamily: [
-      'Amarante'
-    ].join(','),
- },});
-
+    fontFamily: ["Amarante"].join(","),
+  },
+});
+const newTheme = createMuiTheme({
+  typography: {
+    fontFamily: ["Bangers"].join(","),
+  },
+});
 export default function Home() {
   const classes = useStyles();
   const cardClasses = cardStyles();
@@ -83,7 +93,7 @@ export default function Home() {
           <Paper className={classes.paper}>
             <ThemeProvider theme={theme}>
               <Typography variant="h6" gutterBottom>
-            {/* <TextField
+                {/* <TextField
               id="filled-read-only-input"
               defaultValue="Hello World"
               InputProps={{
@@ -91,16 +101,114 @@ export default function Home() {
               }}
               // variant="filled"
             /> */}
-            Hey there, I'm a software engineer who's highly intersted in building some cool products using latest technologies
-            </Typography>
+                Hey there🐼, I'm a software engineer who's highly intersted in
+                building some cool products using latest technologies
+              </Typography>
             </ThemeProvider>
           </Paper>
         </Grid>
+        <Grid item sm={3}></Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
+          <ThemeProvider theme={newTheme}>
+            <Typography variant="h4" gutterBottom>
+              Technologies Worked On 👨‍💻
+            </Typography>
+          </ThemeProvider>
+        </Grid>
+        <Grid item sm={3}></Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "1000ms" }}>
+              <img src={tsImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "1500ms" }}>
+              <img src={jsImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "2000ms" }}>
+              <img src={htmlImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "2500ms" }}>
+              <img src={cssImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "3000ms" }}>
+              <img src={reactImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "3500ms" }}>
+              <img src={nodeImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
+          <ThemeProvider theme={newTheme}>
+            <Typography variant="h4" gutterBottom>
+              Technologies Worked On 👨‍💻
+            </Typography>
+          </ThemeProvider>
+        </Grid>
+        <Grid item sm={3}></Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "1000ms" }}>
+              <img src={tsImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "1500ms" }}>
+              <img src={jsImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "2000ms" }}>
+              <img src={htmlImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "2500ms" }}>
+              <img src={cssImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "3000ms" }}>
+              <img src={reactImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <Paper className={classes.paper}>
+            <Zoom in={true} style={{ transitionDelay: "3500ms" }}>
+              <img src={nodeImg} style={{ height: "50px", width: "50px" }} />
+            </Zoom>
+          </Paper>
         </Grid>
         <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>xs=6 sm=3</Paper>
