@@ -17,7 +17,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import myImg from "../../images/my_img.png";
+import myImg from "../../images/my_img.jpg";
 import jsImg from "../../images/js_img.png";
 import tsImg from "../../images/ts_img.png";
 import htmlImg from "../../images/html_img.png";
@@ -26,6 +26,7 @@ import reactImg from "../../images/react_img.png";
 import nodeImg from "../../images/node_img.png";
 import { TextField } from "@mui/material";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import StarsIcon from '@mui/icons-material/Stars';
 import Zoom from "@mui/material/Zoom";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -77,22 +78,31 @@ export default function Home() {
   const classes = useStyles();
   const cardClasses = cardStyles();
   const [expanded, setExpanded] = React.useState(false);
-
+  const [starColor,setStarColor]=React.useState("white");
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+  const displayLinkModal = ():void => {
+    setStarColor("yellow");
+    alert("This is a link to my github\nhttps://github.com/shreyashpandey/Portfolio-Redeemer/tree/dev");
   };
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>
-            <img src={myImg} style={{ height: "50px", width: "50px" }} />
-          </Paper>
+          {/* <Paper className={classes.paper}> */}
+            <img src={myImg} style={{ height: "340px", width: "250px" }} />
+          {/* </Paper> */}
         </Grid>
         <Grid item xs={9}>
           <Paper className={classes.paper}>
             <ThemeProvider theme={theme}>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h2" component="h2" style={{color:"white"}}>
+                I engineer digital
+                <br/>
+                 products that make an impact
+              </Typography>
+              <Typography variant="h5" gutterBottom>
                 {/* <TextField
               id="filled-read-only-input"
               defaultValue="Hello World"
@@ -103,11 +113,14 @@ export default function Home() {
             /> */}
                 Hey there🐼, I'm a software engineer who's highly intersted in
                 building some cool products using latest technologies
+                I have a 1 year expirence in front-end where I have worked on react-js framework with typescript and
+                 javascript.In tthis page I've listed down all the technologies and projects I've worked on with some data 
+                from my github showing my consistency.
               </Typography>
             </ThemeProvider>
           </Paper>
         </Grid>
-        <Grid item sm={3}></Grid>
+        <Grid item sm={4}></Grid>
         <Grid item xs={12} sm={6}>
           {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
           <ThemeProvider theme={newTheme}>
@@ -116,7 +129,7 @@ export default function Home() {
             </Typography>
           </ThemeProvider>
         </Grid>
-        <Grid item sm={3}></Grid>
+        <Grid item sm={2}></Grid>
         <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>
             <Zoom in={true} style={{ transitionDelay: "1000ms" }}>
@@ -159,21 +172,53 @@ export default function Home() {
             </Zoom>
           </Paper>
         </Grid>
+        <Grid item sm={4}></Grid>
         <Grid item xs={12} sm={6}>
           {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
           <ThemeProvider theme={newTheme}>
             <Typography variant="h4" gutterBottom>
-              Technologies Worked On 👨‍💻
+              Projects Worked On 👨‍💻
             </Typography>
           </ThemeProvider>
         </Grid>
-        <Grid item sm={3}></Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <Zoom in={true} style={{ transitionDelay: "1000ms" }}>
-              <img src={tsImg} style={{ height: "50px", width: "50px" }} />
-            </Zoom>
-          </Paper>
+        <Grid item sm={2}></Grid>
+        {/* <Grid item sm={3}></Grid> */}
+        <Grid item xs={6} sm={4}>
+        <Card>
+      <CardHeader
+        // avatar={
+        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+        //     R
+        //   </Avatar>
+        // }
+        action={
+          <IconButton aria-label="settings">
+            <StarsIcon onClick={displayLinkModal} style={{color:starColor}}/>
+          </IconButton>
+        }
+        title="Education Based Website- Career-Desk"
+        subheader="September 14, 2018"
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image="/static/images/cards/paella.jpg"
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2">
+          This website is a career-desk where you can find all the information about your desired job.
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+        </CardActions>
+      </Card>
         </Grid>
         <Grid item xs={6} sm={2}>
           <Paper className={classes.paper}>

@@ -23,21 +23,21 @@ import { APP_TITLE, DRAWER_WIDTH } from "../../utils/constants";
 // define css-in-js
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    appBar: {
-      zIndex: theme.zIndex.drawer + 1,
-      transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    appBarShift: {
-      marginLeft: DRAWER_WIDTH,
-      width: `calc(100% - ${DRAWER_WIDTH}px)`,
-      transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
+    // appBar: {
+    //   zIndex: theme.zIndex.drawer + 1,
+    //   transition: theme.transitions.create(["width", "margin"], {
+    //     easing: theme.transitions.easing.sharp,
+    //     duration: theme.transitions.duration.leavingScreen,
+    //   }),
+    // },
+    // appBarShift: {
+    //   marginLeft: DRAWER_WIDTH,
+    //   width: `calc(100% - ${DRAWER_WIDTH}px)`,
+    //   transition: theme.transitions.create(["width", "margin"], {
+    //     easing: theme.transitions.easing.sharp,
+    //     duration: theme.transitions.duration.enteringScreen,
+    //   }),
+    // },
     toolbar: {
       flex: 1,
       display: "flex",
@@ -50,9 +50,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "row",
       alignItems: "center",
     },
-    menuButton: {
-      marginRight: 36,
-    },
+    // menuButton: {
+    //   marginRight: 36,
+    // },
     hide: {
       display: "none",
     },
@@ -62,14 +62,14 @@ const useStyles = makeStyles((theme: Theme) =>
 // define interface to represent component props
 interface HeaderProps {
   open: boolean;
-  handleMenuOpen: () => void;
+  // handleMenuOpen: () => void;
   toggleTheme: () => void;
   useDefaultTheme: boolean;
 }
 
 const Header = ({
   open,
-  handleMenuOpen,
+  // handleMenuOpen,
   toggleTheme,
   useDefaultTheme,
 }: HeaderProps) => {
@@ -79,16 +79,16 @@ const Header = ({
     setAnchorEl(!anchorEl);
   };
   return (
-    <AppBar
-      position="fixed"
-      elevation={0}
-      className={clsx(classes.appBar, {
-        [classes.appBarShift]: open,
-      })}
-    >
+    // <AppBar
+    //   position="fixed"
+    //   elevation={0}
+    //   className={clsx(classes.appBar, {
+    //     [classes.appBarShift]: open,
+    //   })}
+    // >
       <Toolbar className={classes.toolbar}>
         <div className={classes.title}>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open menu"
             onClick={handleMenuOpen}
@@ -99,7 +99,7 @@ const Header = ({
             size="small"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" noWrap>
             {APP_TITLE}
           </Typography>
@@ -152,7 +152,7 @@ const Header = ({
           )}
         </IconButton>
       </Toolbar>
-    </AppBar>
+    // </AppBar>
   );
 };
 

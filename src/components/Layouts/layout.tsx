@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(3),
       minHeight: `calc(100vh - ${FOOTER_HEIGHT}px)`,
       background: theme.palette.background.paper,
-      marginLeft: theme.spacing(7) + 1,
-      [theme.breakpoints.up("sm")]: {
-        marginLeft: theme.spacing(9) + 1,
-      },
+      // marginLeft: theme.spacing(7) + 1,
+      // [theme.breakpoints.up("sm")]: {
+      //   marginLeft: theme.spacing(9) + 1,
+      // },
     },
     toolbar: {
       ...theme.mixins.toolbar,
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      marginLeft: DRAWER_WIDTH,
+      // marginLeft: DRAWER_WIDTH,
     },
   })
 );
@@ -58,11 +58,11 @@ const Layout: FC<Props> = ({ toggleTheme, useDefaultTheme, children }) => {
       <CssBaseline />
       <Header
         open={open}
-        handleMenuOpen={toggle}
+        // handleMenuOpen={toggle}
         toggleTheme={toggleTheme}
         useDefaultTheme={useDefaultTheme}
       />
-      <Navigation open={open} handleMenuClose={toggle} />
+      {/* <Navigation open={open} handleMenuClose={toggle} /> */}
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,

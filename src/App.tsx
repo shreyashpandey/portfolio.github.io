@@ -35,7 +35,7 @@ function App() {
   const [useDefaultTheme, toggle] = useReducer((theme) => !theme, true);
 
   // define custom theme
-  let theme: Theme = createTheme(useDefaultTheme ? lightTheme : darkTheme);
+  let theme: Theme = createTheme(useDefaultTheme ? darkTheme : darkTheme);
   theme = responsiveFontSizes(theme);
 
   return (
