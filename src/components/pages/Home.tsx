@@ -24,9 +24,10 @@ import htmlImg from "../../images/html_img.png";
 import cssImg from "../../images/css_img.png";
 import reactImg from "../../images/react_img.png";
 import nodeImg from "../../images/node_img.png";
+import blockly from "../../images/blockly.png"
 import { TextField } from "@mui/material";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import StarsIcon from '@mui/icons-material/Stars';
+import StarsIcon from "@mui/icons-material/Stars";
 import Zoom from "@mui/material/Zoom";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,29 +79,35 @@ export default function Home() {
   const classes = useStyles();
   const cardClasses = cardStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [starColor,setStarColor]=React.useState("white");
+  const [starColor, setStarColor] = React.useState("white");
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const displayLinkModal = ():void => {
+  const displayLinkModal = (): void => {
     setStarColor("yellow");
-    alert("This is a link to my github\nhttps://github.com/shreyashpandey/Portfolio-Redeemer/tree/dev");
+    alert(
+      "This is a link to my github\nhttps://github.com/shreyashpandey/Portfolio-Redeemer/tree/dev"
+    );
   };
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={3}>
           {/* <Paper className={classes.paper}> */}
-            <img src={myImg} style={{ height: "340px", width: "250px" }} />
+          <img src={myImg} style={{ height: "340px", width: "250px" }} />
           {/* </Paper> */}
         </Grid>
         <Grid item xs={9}>
           <Paper className={classes.paper}>
             <ThemeProvider theme={theme}>
-              <Typography variant="h2" component="h2" style={{color:"white"}}>
+              <Typography
+                variant="h2"
+                component="h2"
+                style={{ color: "white" }}
+              >
                 I engineer digital
-                <br/>
-                 products that make an impact
+                <br />
+                products that make an impact
               </Typography>
               <Typography variant="h5" gutterBottom>
                 {/* <TextField
@@ -112,10 +119,11 @@ export default function Home() {
               // variant="filled"
             /> */}
                 Hey there🐼, I'm a software engineer who's highly intersted in
-                building some cool products using latest technologies
-                I have a 1 year expirence in front-end where I have worked on react-js framework with typescript and
-                 javascript.In tthis page I've listed down all the technologies and projects I've worked on with some data 
-                from my github showing my consistency.
+                building some cool products using latest technologies I have a 1
+                year expirence in front-end where I have worked on react-js
+                framework with typescript and javascript.In tthis page I've
+                listed down all the technologies and projects I've worked on
+                with some data from my github showing my consistency.
               </Typography>
             </ThemeProvider>
           </Paper>
@@ -183,77 +191,90 @@ export default function Home() {
         </Grid>
         <Grid item sm={2}></Grid>
         {/* <Grid item sm={3}></Grid> */}
-        <Grid item xs={6} sm={4}>
-        <Card>
-      <CardHeader
-        // avatar={
-        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-        //     R
-        //   </Avatar>
-        // }
-        action={
-          <IconButton aria-label="settings">
-            <StarsIcon onClick={displayLinkModal} style={{color:starColor}}/>
-          </IconButton>
-        }
-        title="Education Based Website- Career-Desk"
-        subheader="September 14, 2018"
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2">
-          This website is a career-desk where you can find all the information about your desired job.
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        </CardActions>
-      </Card>
+        <Grid item xs={12} sm={12}>
+          <Card>
+            <CardHeader
+              // avatar={
+              //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              //     R
+              //   </Avatar>
+              // }
+              action={
+                <IconButton aria-label="settings">
+                  <StarsIcon
+                    onClick={displayLinkModal}
+                    style={{ color: starColor }}
+                  />
+                </IconButton>
+              }
+              title="Education Based Website- Career-Desk"
+              subheader="September 14, 2018"
+            />
+            <CardMedia
+              component="img"
+              height="194"
+              image="/static/images/cards/paella.jpg"
+              alt="Paella dish"
+            />
+            <CardContent>
+              <Typography variant="body2">
+                This website is a career-desk where you can find all the
+                information about your desired job.
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </CardActions>
+          </Card>
         </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <Zoom in={true} style={{ transitionDelay: "1500ms" }}>
-              <img src={jsImg} style={{ height: "50px", width: "50px" }} />
-            </Zoom>
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <Zoom in={true} style={{ transitionDelay: "2000ms" }}>
-              <img src={htmlImg} style={{ height: "50px", width: "50px" }} />
-            </Zoom>
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <Zoom in={true} style={{ transitionDelay: "2500ms" }}>
-              <img src={cssImg} style={{ height: "50px", width: "50px" }} />
-            </Zoom>
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <Zoom in={true} style={{ transitionDelay: "3000ms" }}>
-              <img src={reactImg} style={{ height: "50px", width: "50px" }} />
-            </Zoom>
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <Zoom in={true} style={{ transitionDelay: "3500ms" }}>
-              <img src={nodeImg} style={{ height: "50px", width: "50px" }} />
-            </Zoom>
-          </Paper>
+        <Grid item xs={12} sm={12}>
+          <Card>
+            <CardHeader
+              // avatar={
+              //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              //     R
+              //   </Avatar>
+              // }
+              action={
+                <IconButton aria-label="settings">
+                  <StarsIcon
+                    onClick={displayLinkModal}
+                    style={{ color: starColor }}
+                  />
+                </IconButton>
+              }
+              title=" Code Builder made using Blockly"
+              subheader="September 14, 2018"
+            />
+            <CardMedia
+              component="img"
+              height="194"
+              width="200"
+              style={{height:"200px",width:"500px"}}
+              image={blockly}
+              alt="Blockly Image"
+            />
+            <CardContent>
+              <Typography variant="body2">
+                Code Builder is an app using which any person irrespective of its field can build small frontend and backend application.
+                It's completely build on vanilla js and module design pattern.
+                Please rate it, if you liked the concept.
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </CardActions>
+          </Card>
         </Grid>
         <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>xs=6 sm=3</Paper>
