@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import Stack from "@mui/material/Stack";
 import Grid from "@material-ui/core/Grid";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -17,6 +18,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import myImg from "../../images/my_img.jpg";
 import jsImg from "../../images/js_img.png";
 import tsImg from "../../images/ts_img.png";
@@ -24,11 +27,21 @@ import htmlImg from "../../images/html_img.png";
 import cssImg from "../../images/css_img.png";
 import reactImg from "../../images/react_img.png";
 import nodeImg from "../../images/node_img.png";
-import blockly from "../../images/blockly.png"
+import Careers from "../../images/Carrers.png";
+import DiscountCalculator from "../../images/DiscountCalculator.png";
+import blockly from "../../images/blockly.png";
 import { TextField } from "@mui/material";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import StarsIcon from "@mui/icons-material/Stars";
 import Zoom from "@mui/material/Zoom";
+import { projectsObj } from "../descriptions/description";
+const buttonStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      minWidth: 200,
+    },
+  })
+);
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -63,6 +76,11 @@ const cardStyles = makeStyles((theme: Theme) =>
     avatar: {
       backgroundColor: red[500],
     },
+    card: {
+      backgroundImage:
+        "linear-gradient(to bottom right purple pink) !important",
+      height: "250px !important",
+    },
   })
 );
 const theme = createMuiTheme({
@@ -94,7 +112,14 @@ export default function Home() {
       <Grid container spacing={3}>
         <Grid item xs={3}>
           {/* <Paper className={classes.paper}> */}
-          <img src={myImg} style={{ height: "340px", width: "250px" }} />
+          {/* <img
+            src={myImg}
+            style={{
+              height: "340px",
+              width: "250px",
+              boxShadow: "5px 10px #888888",
+            }}
+          /> */}
           {/* </Paper> */}
         </Grid>
         <Grid item xs={9}>
@@ -129,6 +154,120 @@ export default function Home() {
           </Paper>
         </Grid>
         <Grid item sm={4}></Grid>
+
+        <Grid item sm={4}></Grid>
+
+        <Grid item sm={4}></Grid>
+        <Grid item sm={4}></Grid>
+        <Grid item xs={12} sm={6}>
+          {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
+          <ThemeProvider theme={newTheme}>
+            <Typography variant="h4" gutterBottom>
+              Projects Worked On 👨‍💻
+            </Typography>
+          </ThemeProvider>
+        </Grid>
+        <Grid item sm={2}></Grid>
+        {/* <Grid item sm={3}></Grid> */}
+        <Grid item sm={6} xs={6}>
+          <p style={{ textAlign: "center", fontSize: "32px" }}> Frontend</p>
+        </Grid>
+        <Grid item sm={6} xs={6}>
+          <p style={{ textAlign: "center", fontSize: "32px" }}> Backend</p>
+        </Grid>
+
+        {projectsObj.map((project) => (
+          <Grid item xs={6} sm={6}>
+            <Card className={cardClasses.card}>
+              <CardHeader title={project.ProjectName} />
+              <CardContent>
+                <Typography variant="body2">
+                  {project.ProjectDescription}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+        {/* <Card>
+            <CardHeader
+              // avatar={
+              //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              //     R
+              //   </Avatar>
+              // }
+              action={
+                <IconButton aria-label="settings">
+                  <StarsIcon
+                    onClick={displayLinkModal}
+                    style={{ color: starColor }}
+                  />
+                </IconButton>
+              }
+              title="Education Based Website- Career-Desk"
+              subheader="September 14, 2018"
+            />
+            <CardMedia
+              component="img"
+              height="194"
+              image={Careers}
+              style={{ height: "200px", width: "500px" }}
+              alt="Paella dish"
+            />
+            <CardContent>
+              <Typography variant="body2">
+                This website is a career-desk where you can find all the
+                information about your desired job.
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </CardActions>
+          </Card> */}
+        {/* </Grid> */}
+        <Grid item xs={6} sm={6}>
+          {/* <Card> */}
+          {/* <CardHeader
+              // avatar={
+              //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              //     R
+              //   </Avatar>
+              // }
+              action={
+                <IconButton aria-label="settings">
+                  <StarsIcon
+                    onClick={displayLinkModal}
+                    style={{ color: starColor }}
+                  />
+                </IconButton>
+              }
+              title="Education Based Website- Career-Desk"
+              subheader="September 14, 2018"
+            /> */}
+          {/* <CardContent>
+              <Typography variant="body2">
+                In this project I worked on expanding the backend reference to
+                the google meet api to get accessible for more users than the
+                limit for a particular sales user and assigning those
+                accessibilty to the particular user by using a round-robin
+                approach and atomic counter in aws
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </CardActions>
+          </Card> */}
+        </Grid>
+        <Grid item sm={4}></Grid>
         <Grid item xs={12} sm={6}>
           {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
           <ThemeProvider theme={newTheme}>
@@ -138,7 +277,7 @@ export default function Home() {
           </ThemeProvider>
         </Grid>
         <Grid item sm={2}></Grid>
-        <Grid item xs={6} sm={2}>
+        <Grid item xs={12} sm={2}>
           <Paper className={classes.paper}>
             <Zoom in={true} style={{ transitionDelay: "1000ms" }}>
               <img src={tsImg} style={{ height: "50px", width: "50px" }} />
@@ -180,194 +319,19 @@ export default function Home() {
             </Zoom>
           </Paper>
         </Grid>
-        <Grid item sm={4}></Grid>
-        <Grid item xs={12} sm={6}>
-          {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
-          <ThemeProvider theme={newTheme}>
-            <Typography variant="h4" gutterBottom>
-              Projects Worked On 👨‍💻
-            </Typography>
-          </ThemeProvider>
-        </Grid>
-        <Grid item sm={2}></Grid>
-        {/* <Grid item sm={3}></Grid> */}
-        <Grid item xs={12} sm={12}>
-          <Card>
-            <CardHeader
-              // avatar={
-              //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              //     R
-              //   </Avatar>
-              // }
-              action={
-                <IconButton aria-label="settings">
-                  <StarsIcon
-                    onClick={displayLinkModal}
-                    style={{ color: starColor }}
-                  />
-                </IconButton>
-              }
-              title="Education Based Website- Career-Desk"
-              subheader="September 14, 2018"
-            />
-            <CardMedia
-              component="img"
-              height="194"
-              image="/static/images/cards/paella.jpg"
-              alt="Paella dish"
-            />
-            <CardContent>
-              <Typography variant="body2">
-                This website is a career-desk where you can find all the
-                information about your desired job.
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={12}>
-          <Card>
-            <CardHeader
-              // avatar={
-              //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              //     R
-              //   </Avatar>
-              // }
-              action={
-                <IconButton aria-label="settings">
-                  <StarsIcon
-                    onClick={displayLinkModal}
-                    style={{ color: starColor }}
-                  />
-                </IconButton>
-              }
-              title=" Code Builder made using Blockly"
-              subheader="September 14, 2018"
-            />
-            <CardMedia
-              component="img"
-              height="194"
-              width="200"
-              style={{height:"200px",width:"500px"}}
-              image={blockly}
-              alt="Blockly Image"
-            />
-            <CardContent>
-              <Typography variant="body2">
-                Code Builder is an app using which any person irrespective of its field can build small frontend and backend application.
-                It's completely build on vanilla js and module design pattern.
-                Please rate it, if you liked the concept.
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-          <Card className={cardClasses.root}>
-            <CardHeader
-              avatar={
-                <Avatar aria-label="recipe" className={cardClasses.avatar}>
-                  R
-                </Avatar>
-              }
-              action={
-                <IconButton aria-label="settings">
-                  <MoreVertIcon />
-                </IconButton>
-              }
-              title="Shrimp and Chorizo Paella"
-              subheader="September 14, 2016"
-            />
-            <CardMedia
-              className={cardClasses.media}
-              image="/static/images/cards/paella.jpg"
-              title="Paella dish"
-            />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                This impressive paella is a perfect party dish and a fun meal to
-                cook together with your guests. Add 1 cup of frozen peas along
-                with the mussels, if you like.
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
-              <IconButton
-                className={clsx(cardClasses.expand, {
-                  [cardClasses.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography paragraph>Method:</Typography>
-                <Typography paragraph>
-                  Heat 1/2 cup of the broth in a pot until simmering, add
-                  saffron and set aside for 10 minutes.
-                </Typography>
-                <Typography paragraph>
-                  Heat oil in a (14- to 16-inch) paella pan or a large, deep
-                  skillet over medium-high heat. Add chicken, shrimp and
-                  chorizo, and cook, stirring occasionally until lightly
-                  browned, 6 to 8 minutes. Transfer shrimp to a large plate and
-                  set aside, leaving chicken and chorizo in the pan. Add
-                  pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                  pepper, and cook, stirring often until thickened and fragrant,
-                  about 10 minutes. Add saffron broth and remaining 4 1/2 cups
-                  chicken broth; bring to a boil.
-                </Typography>
-                <Typography paragraph>
-                  Add rice and stir very gently to distribute. Top with
-                  artichokes and peppers, and cook without stirring, until most
-                  of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-                  medium-low, add reserved shrimp and mussels, tucking them down
-                  into the rice, and cook again without stirring, until mussels
-                  have opened and rice is just tender, 5 to 7 minutes more.
-                  (Discard any mussels that don’t open.)
-                </Typography>
-                <Typography>
-                  Set aside off of the heat to let rest for 10 minutes, and then
-                  serve.
-                </Typography>
-              </CardContent>
-            </Collapse>
-          </Card>
-          S
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-        </Grid>
+      </Grid>
+      <Grid item xs={6} sm={4}></Grid>
+      <Grid item xs={12} sm={6}>
+        {/* <Paper className={classes.paper}>xs=12 sm=6</Paper> */}
+        <ThemeProvider theme={newTheme}>
+          <Typography variant="h4" gutterBottom>
+            Certifications Gained 🦾
+          </Typography>
+        </ThemeProvider>
+      </Grid>
+      <Grid item sm={2}></Grid>
+      <Grid item xs={12} sm={3}>
+        <Stack direction="row" spacing={2}></Stack>
       </Grid>
     </div>
   );
