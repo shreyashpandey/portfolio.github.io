@@ -5,6 +5,9 @@ import blue from '@material-ui/core/colors/blue';
 export const lightTheme: Theme = createTheme({
     palette: {
         type: "light",
+        primary: {
+            main: "#47a9c1",
+        },
     },
 });
 
@@ -13,10 +16,10 @@ export const darkTheme: Theme = createTheme({
     palette: {
         type: "dark",
         primary: {
-            main: "#fc5a8d",
+            main: '#47a9c1',
         },
         secondary: {
-            main: blue[500],
+            main: '#47a9c1',
         },
     },
 });

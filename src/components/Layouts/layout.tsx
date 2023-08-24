@@ -7,7 +7,7 @@ import { CssBaseline } from "@material-ui/core";
 import Header from "../headers/header";
 import Navigation from "../navigation/Navigation";
 import Footer from "../footers/footer";
-
+import Grid from "@mui/material/Grid"
 // constants
 import { DRAWER_WIDTH, FOOTER_HEIGHT } from "../../utils/constants";
 
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(3),
       minHeight: `calc(100vh - ${FOOTER_HEIGHT}px)`,
-      background: theme.palette.background.paper,
+      background: "#47a9c1"
       // marginLeft: theme.spacing(7) + 1,
       // [theme.breakpoints.up("sm")]: {
       //   marginLeft: theme.spacing(9) + 1,
@@ -58,10 +58,6 @@ const Layout: FC<Props> = ({ toggleTheme, useDefaultTheme, children }) => {
       <CssBaseline />
       <header style={{position:'sticky',top:'0px'}}>
       <Header
-        open={open}
-        // handleMenuOpen={toggle}
-        toggleTheme={toggleTheme}
-        useDefaultTheme={useDefaultTheme}
       />
       </header>
       {/* <Navigation open={open} handleMenuClose={toggle} /> */}
