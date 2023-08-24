@@ -155,6 +155,7 @@ export default function Home() {
     setTimeout(() => {
       console.log("Mouse Event Id ", e)
     }, 1000)
+    // Modal Display Comment
   }
   function AddMoreContent() {
     // $.post('getMoreContent.php', function(data) {
@@ -203,6 +204,7 @@ export default function Home() {
               />
             </Paper>
           </Grid>
+          
           <Grid item md={7} sm={7} xs={12}>
             <Paper className={classes.paper} style={{ background: 'linear-gradient(356deg, black, transparent)', boxShadow: '20px 15px 5px white', minHeight: '400px' }}>
               <ThemeProvider theme={theme}>
