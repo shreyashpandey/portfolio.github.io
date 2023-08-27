@@ -24,7 +24,7 @@ import myImg from "../../images/my_img.jpg";
 import jsImg from "../../images/js_img.png";
 import tsImg from "../../images/ts_img.png";
 import htmlImg from "../../images/html_img.png";
-import cssImg from "../../images/css_img.png";
+import cssImg from "../../images/CSS_img.png";
 import reactImg from "../../images/react_img.png";
 import nodeImg from "../../images/node_img.png";
 import dataScience from "../../images/DataScience_DC.png";
